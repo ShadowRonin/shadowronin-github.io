@@ -21,6 +21,7 @@ Built with:
     - [typewriter](https://pixabay.com/photos/typewriter-vintage-keyboard-letter-7686633/)
     - [fiber optic wire](https://pixabay.com/photos/fiber-cable-wire-connection-4814456/)
     - [hot air ballon](https://pixabay.com/photos/hot-air-balloon-lake-balloon-sky-736879/)
+    - [rusty chain](https://pixabay.com/photos/chain-rust-iron-metal-macro-rusty-566778/)
 
 ## To build
 - `bundle exec jekyll serve`
