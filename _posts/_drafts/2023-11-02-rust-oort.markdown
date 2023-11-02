@@ -1,0 +1,94 @@
+---
+layout: post
+title:  "Learning Rust: Oort"
+subtitle: "The start of my Rust journey"
+date:   2023-11-01 00:00:15 -0400
+categories: rust
+background: '/assets/images/rusty-chain.jpg'
+---
+
+# Intro
+[Oort](https://oort.rs/) is programming game, where you write Rust code to control spaceships in a battle. Your program will control the ships movement, weapons, radar, and communications. Oort uses newtonian physics, a radar system, and a basic radio system. It has a series of tutorials that slowly introduce you to the complexity of the system. Oort also has several more complex scenarios, that make use of all of the features. This culmalates in regular tournaments that the [discord community](https://discord.gg/vYyu9EhkKH) runs, which battle each others bots to see who's is the best.
+
+I started going through the Oort tutorials as part of my journey to learn Rust (and because it looks fun). I am trying to work my way through the tutorials without looking up too much the "proper" way to do it. Just relying on my, limited for now, knowledge of Rust, and what physics I can remember from collage. Later I will try to make a full bot, using better algorithms and hopefully more standard Rust practices. My code I use for Orrt can be found in [this repository](https://github.com/ShadowRonin/oort-ships), which I will be continuing to update as I progress.
+
+# Tutorials 1-4
+
+These first few tutorials just show you some of the more commonly used functions for Oort. They are basically just have you uncomment code, so I didn't keep any of my own code for them. The one thing I do want to note is that to write a bot for Oort, you do so by implementing the `Ship` struct.
+
+```rust
+// loads the standard oort apis
+use oort_api::prelude::*;
+
+pub struct Ship {}
+
+impl Ship {
+    pub fn new() -> Ship {
+        Ship {}
+    }
+
+    pub fn tick(&mut self) {
+        // This function is called every game tick
+        // This is where you will put all of your logic for your ship
+    }
+}
+```
+
+# Tutorial 5
+
+Tutorial 5 & 6 start teaching about how to aim and fire your ship. Now, Oort takes place in two dimensions, and therefore position, velocity, and acceleration, are all 2d vectors. Oorts comes with a struct `Vec2` to help with this. 
+
+Tutorial 5 has you firing at a target that is moving with a constant velocity(*v*). The bullets our ship shoots travel at a speed of 1,000 meters/second. So we have to determine where the enemy will be once our bullets reach it. To do this we can use the following formula to determine the where the target will be(*p<sub>1</sub>*) after a certain amount of time (*Δt*): p<sub>1</sub> = p<sub>0</sub> + v \* Δt
+
+The code would look something like:
+```Rust
+let p0 = target();
+let v = target_velocity();
+let d = target() - position(); // distance to target
+let t = d.length() / BULLET_SPEED; // how long before our bullets reach the target
+let p1 = p0 + v * t;
+```
+
+Now there is one problem with this, the time for our bullets to reach *p0* is different then the time to reach *p1*. This can cause us the target entirely. My approach to fixing this was to recalculate *d* and *t* to match our calculation for *p1*, and repeat this multiple times.
+
+```Rust
+let mut p1 = p0 + v * t;
+        
+for _ in 0..100 {
+    let d = p1 - position();
+    let t = d.length() / BULLET_SPEED;
+    p1 = p0 + v * t;
+}
+```
+
+The tick function for our ship will then look like:
+
+```Rust
+let p1 = self.calculate_p1();
+let p1_angle = angle_diff(heading(), p1.angle());
+
+// draws a green line from our ship to the target ship
+// this is useful to visualize what is happening
+draw_line(position(), target(), 0x00ff00);
+
+// draws a cyan line to p1 of the target
+// this is where we should be aiming
+draw_line(position(), p1, 0x47cbe6);
+
+// Only fire if we are facing p1
+// Note: everything is in floats, so p1_angle will never be exactly 0
+if p1_angle.abs() < degree_to_radian(0.05) {
+    fire(0); // this tell the ship to fire weapon number '0'
+}
+
+// Turn to face the target
+turn(p1_angle * 100.0);
+```
+
+# Tutorial 6
+
+TODO
+
+# Warping up
+
+TODO
