@@ -13,9 +13,9 @@ The general outline per *No Boilerplate* is:
 - (optional) Read Ultralearning by Scott H Young
 
 After completing the above, then I plan on doing some more intense projects. Possible ideas:
-- [Oort](https://oort.rs/?utm_source=tldrwebdev), spaceship game
+- [Oort](https://oort.rs/), spaceship game
 - re-implement existing tools in rust
-    - [build-your-own-x](https://github.com/codecrafters-io/build-your-own-x?utm_source=tldrwebdev)
+    - [build-your-own-x](https://github.com/codecrafters-io/build-your-own-x)
     - Maybe redis?
 - build a blog site, where i can post this stuff?
     - tbh dont really need rust for that unless we add comments or make it more of a CMS

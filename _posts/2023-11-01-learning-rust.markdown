@@ -22,10 +22,10 @@ I am going to try to roughly follow [No Boilerplate](https://www.youtube.com/@No
     - This gives more detailed code examples
 
 I plan on also adding some additional projects, before or during the above, including:
-- [Oort](https://oort.rs/?utm_source=tldrwebdev)
+- [Oort](https://oort.rs/)
     - a spaceship programming game in Rust
 - re-implement existing tools in rust
-    - [build-your-own-x](https://github.com/codecrafters-io/build-your-own-x?utm_source=tldrwebdev)
+    - [build-your-own-x](https://github.com/codecrafters-io/build-your-own-x)
     - Maybe redis?
 - Take a look at different Rust based tech stacks
     - [BETH](https://www.youtube.com/watch?v=cpzowDDJj24)
