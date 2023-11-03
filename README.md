@@ -22,6 +22,7 @@ Built with:
     - [fiber optic wire](https://pixabay.com/photos/fiber-cable-wire-connection-4814456/)
     - [hot air ballon](https://pixabay.com/photos/hot-air-balloon-lake-balloon-sky-736879/)
     - [rusty chain](https://pixabay.com/photos/chain-rust-iron-metal-macro-rusty-566778/)
+    - [orion nebula](https://pixabay.com/photos/orion-nebula-emission-nebula-11107/)
 
 ## To build
 - `bundle exec jekyll serve`
