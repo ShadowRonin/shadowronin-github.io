@@ -6,10 +6,10 @@ date:   2023-11-01 00:00:15 -0400
 categories: rust
 background: '/assets/images/rusty-chain.jpg'
 ---
-# Overview
+## Overview
 I was inspired to start learning Rust a few days ago after watching [How to Learn Rust](https://www.youtube.com/watch?v=2hXNd6x9sZs) by [No Boilerplate](https://www.youtube.com/@NoBoilerplate). Rust is a language I've been interested for awhile now, both because of it has some novel approaches I haven't seen in other langs, and because it's closer to the metal (and more efficient) then the JS and C# I am used too. I've worked with C++ some in the past, but I found it to be cumbersome at times. I am excited to try Rust's more functional approach, as well as it's memory safe features. 
 
-# The plan
+## The plan
 I am going to try to roughly follow [No Boilerplate](https://www.youtube.com/@NoBoilerplate)'s plan, with the additional of some projects. In general:
 - Read [the book](https://doc.rust-lang.org/stable/book/title-page.html) twice
     - This gives a strong foundation on the Rust language features
@@ -33,7 +33,7 @@ I plan on also adding some additional projects, before or during the above, incl
 - A project using WASM
 - Look into data processing with Rust
 
-# Starting the book
+## Starting the book
 Over the last few days I've read the first half of [the book](https://doc.rust-lang.org/stable/book/title-page.html), up through chapter 11. From hearing some about Rust before hand, I was expecting this to be confusing, so far though it reminds me a lot of TypeScript. The only feature that is going to take some getting used to is ownership.
 
 ## Ownership

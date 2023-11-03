@@ -7,12 +7,12 @@ categories: rust
 background: '/assets/images/orion-nebula.jpg'
 ---
 
-# Intro
+## Intro
 [Oort](https://oort.rs/) is programming game, where you write Rust code to control spaceships in a battle. Your program will control the ships movement, weapons, radar, and communications. Oort uses newtonian physics, a radar system, and a basic radio system. It has a series of tutorials that slowly introduce you to the complexity of the system. Oort also has several more complex scenarios, that make use of all of the features. This culmalates in regular tournaments that the [discord community](https://discord.gg/vYyu9EhkKH) runs, which battle each others bots to see who's is the best.
 
 I started going through the Oort tutorials as part of my journey to learn Rust (and because it looks fun). I am trying to work my way through them without looking up too much the "proper" way to do it. Just relying on what I know so far of Rust, and what physics I can remember from collage. Later I will try to make a full bot, using better algorithms and hopefully more standard Rust practices. My code I use for Oort can be found in [this repository](https://github.com/ShadowRonin/oort-ships), which I will be continuing to update as I progress.
 
-# Tutorials 1-4
+## Tutorials 1-4
 
 These first few tutorials show you some of the more commonly used functions for Oort. They mostly just have you uncomment code. The one thing I do want to note is that to write a bot for Oort, you do so by implementing the `Ship` struct.
 
@@ -34,7 +34,7 @@ impl Ship {
 }
 ```
 
-# Tutorial 5
+## Tutorial 5
 
 Tutorial 5 & 6 start teaching about how to aim and fire your ship. Oort takes place in two dimensions and therefore position, velocity, and acceleration, are all 2d vectors. Oorts comes with a struct `Vec2` to help with this. 
 
@@ -85,7 +85,7 @@ if p1_angle.abs() < degree_to_radian(0.05) {
 turn(p1_angle * 100.0);
 ```
 
-# Tutorial 6
+## Tutorial 6
 
 In this one, the target is accelerating(*a*) in a random direction. So we need to change our formula. It should now be: p<sub>1</sub> = p<sub>0</sub> + v * t + <sup>1</sup>/<sub>2</sub> * a * t<sup>2</sup>
 
@@ -127,5 +127,5 @@ fn calculate_p1(&mut self) -> Vec2 {
 That's all the change we need now, but there is a few things to keep in mind. The formula we are using assumes a constant `a`, however the target can and will make changes to their `a` before our bullets get there. That will cause us to sometimes miss. Thankfully assuming constant `a` works well enough for now, in the future we may have to come up with something else.
 
 
-# Warping up
+## Warping up
 Overall we learned about the basic structure of Oort, and did some physics so we could shoot the target. In my next post we'll take a look at the radar, and perhaps the radio.
