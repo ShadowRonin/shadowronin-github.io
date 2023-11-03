@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Learning Rust: Oort"
-subtitle: "The start of my Rust journey"
+subtitle: "A spaceship battle game"
 date:   2023-11-01 00:00:15 -0400
 categories: rust
 background: '/assets/images/orion-nebula.jpg'
