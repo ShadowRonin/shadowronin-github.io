@@ -9,7 +9,11 @@ background: '/assets/images/question-mark.jpg'
 
 ## Error
 
-Recently, while working on my next Oort post, I came across the following error. `rustc failed: error[E0507]: cannot move out of 'self.scan_result' which is behind a mutable reference`. This happened when I tried reassigning from one field in `Ship` to another.
+Recently, while working on my next Oort post, I came across the following error. 
+```
+rustc failed: error[E0507]: cannot move out of `self.scan_result` which is behind a mutable reference
+```
+This happened when I tried reassigning from one field in *Ship* to another.
 
 ```rust
 pub struct Ship {
