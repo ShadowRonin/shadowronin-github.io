@@ -2,7 +2,7 @@
 layout: post
 title:  "Learning Rust: Oort, radar"
 subtitle: "Finding the enemy"
-date:   2023-11-07 00:00:15 -0400
+date:   2023-11-07 12:00:15 -0500
 categories: [rust, oort]
 background: '/assets/images/orion-nebula.jpg'
 ---
