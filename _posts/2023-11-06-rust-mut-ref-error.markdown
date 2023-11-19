@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Learning Rust: Houston, we have a problem"
+title:  "Rust: Houston, we have a problem"
 subtitle:  "A mutable reference error"
 date:   2023-11-06 00:00:15 -0400
 categories: [rust, oort]

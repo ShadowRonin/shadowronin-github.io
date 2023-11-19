@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Learning Rust: Oort"
+title:  "Rust: Oort"
 subtitle: "A spaceship battle game"
 date:   2023-11-02 00:00:15 -0400
 categories: [rust, oort]

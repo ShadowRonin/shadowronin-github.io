@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Learning Rust: the plan"
+title:  "Rust: the plan"
 subtitle: "The start of my Rust journey"
 date:   2023-11-01 00:00:15 -0400
 categories: rust

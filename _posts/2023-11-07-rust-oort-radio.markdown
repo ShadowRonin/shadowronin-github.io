@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Learning Rust: Oort, radar"
+title:  "Rust: Oort, radar"
 subtitle: "Finding the enemy"
 date:   2023-11-07 00:00:15 -0400
 categories: [rust, oort]
