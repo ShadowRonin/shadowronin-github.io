@@ -9,10 +9,12 @@ background: '/assets/images/rusty-chain.jpg'
 
 ## Overview
 
-Wanted to go ahead and take a look at what building a web app in Rust would be like. I am going to create a simple todo app, which I might later expand to be more like a kanban board. Taking some inspiration from another one of [NoBoilerplate's videos](https://www.youtube.com/watch?v=pocWrUj68tU); I plan on using [Poem](https://github.com/poem-web/poem) for my web framework, with [sqlx](https://docs.rs/sqlx/latest/sqlx/) to interface with MySQL, and [htmx](https://htmx.org/) for the frontend. The code for this project can be found [here on github](https://github.com/ShadowRonin/rust-todo).
+I wanted to take a look at what building a web app in Rust is like. I am going to create a simple todo app, which I might later expand to be more of a kanban board. Taking some inspiration from another one of [NoBoilerplate's videos](https://www.youtube.com/watch?v=pocWrUj68tU); I plan on using [Poem](https://github.com/poem-web/poem) for my web framework, with [sqlx](https://docs.rs/sqlx/latest/sqlx/) to interface with MySQL, and [htmx](https://htmx.org/) for the frontend. The code for this project can be found [here on github](https://github.com/ShadowRonin/rust-todo).
 
 ## Tokio
-Async in rust isn't quite fully useable out of the box. While rust provides some building blocks, including the async/await syntax, it requires you to build additional logic on top to manage which code should run when, this is called an asynchronous runtime. While you could build your own; I've decided to use Tokio instead, which appears to be the most popular runtime. [Tokio](https://tokio.rs/) is a rust crate that provides an asynchronous runtime, as well as some async IO and parallelism. The most basic usage is too simply add `#[tokio::main]` to your main fn, and to make it asynchronous. Note that without tokio (or the like), the main fn cannot be async in rust.
+Since we will be creating rest apis and connecting to a sql server, we will need to be able to write asynchronous code. While rust comes with async/await syntax, and it's even pretty similar to JS, async in rust isn't quite useable out of the box. Rust provides some building blocks, but it requires you to build additional logic on top to manage which code should run when, this is called an asynchronous runtime. While you could build your own; I've decided to use Tokio instead, which appears to be the most popular runtime. 
+
+[Tokio](https://tokio.rs/) is a rust crate that provides an asynchronous runtime, as well as some async IO and parallelism. The most basic usage is too simply add `#[tokio::main]` to your main fn, and to make it asynchronous. Note that without tokio (or the like), the main fn cannot be async in rust.
 
 ```rust
 #[tokio::main]
@@ -22,9 +24,9 @@ async fn main() {
 ```
 
 ## Eyre
-Rust can have a lot of different Result and Error types, as many different functions and crates will create their own. It can be fairly annoying to deal with all of these deuplicate, or near duplicate, types; so instead I will be using the [Eyre](https://crates.io/crates/eyre) crete to provide more unified error handling. Additionally the [color-eyre](color-eyre) crate provides more rich console output for runtime errors. 
+Rust can have a lot of different Result and Error types, as many different functions and crates will create their own. It can be fairly annoying to deal with all of these deuplicate, or near duplicate, types; so instead I will be using the [Eyre](https://crates.io/crates/eyre) crate to provide more unified error handling. Additionally the [color-eyre](color-eyre) crate provides more rich console output for runtime errors. 
 
-## Poem
+## Hello Poem
 
 Now we can actually get started building some APIs with Poem. Note we are also using the poem-openapi crate, to give us some nice api documentation. To create our first endpoint we just need to make a blank struct with a simple impl block, like so: 
 ```rust
@@ -56,11 +58,11 @@ poem::Server::new(TcpListener::bind("127.0.0.1:3000"))
 
 Here we are setting up a server to run on localhost port 3000, with our apis under the '/api' path and our API explorer on the root path. Now we can open up the api explorer and test out our hello world api.
 
-![](/assets/posts/2023-11-19/hello-poem.gif)
+![](/assets/posts/2023-11-19/hello_poem.png)
 
 ## sqlx
 
-Now that we can create some apis, lets connect it to a db and make some todos! I will be using a MySQL server for this, via docker compose. Then using sqlx to both manage the schema and to connect my server to the db. Not only does sqlx allow us to connect to sql dbs and run queries, it can also do type checking at compile time! The compiler will actually connect to your db and confirm that the tables and types match up, and will throw errors if it doesn't. This will allow us to use the power of rust to make sure all of our sql queries are valid too.
+Let's now add a database and create some todos! I will be using a MySQL server for this, via docker compose. Then using sqlx to both manage the schema and to connect my server to the db. Not only does sqlx allow us to connect to sql dbs and run queries, it can also do type checking at compile time! The compiler will actually connect to your db and confirm that the tables and types match up, and will throw errors if it doesn't. This will allow us to use the power of rust to make sure all of our sql queries are valid too.
 
 sqlx comes with some CLI tools allowing us to create to manage and update our sql schema. We can add our initial schema by creating a migration with this command `sqlx migrate add <migration name>`. This will create a new folder `/migrations` with a blank sql file in it. We can then add a table to it:
 ```sql
@@ -139,4 +141,4 @@ error[E0560]: struct `Todo` has no field named `created_at`
 The compiler tells as of the mismatch! It will even let us know that the there is a similarly named field. We now know right where the issue is and can make changes to the struct or sql schema to have the names match up.
 
 ## Wrapping up
-That all we really need to know to get some basic web endpoints up and running in rust. Note that I have also created endpoints to create a new todo, and to retrieve all todos. That can be found in [the repository](https://github.com/ShadowRonin/rust-todo). In my next post we will be creating a frontend for our todo app using htmx.
+That all we really need to know to get some basic restful endpoints up and running in rust. Note that I have also created endpoints to create a new todo, and to retrieve all todos. That can be found in [the repository](https://github.com/ShadowRonin/rust-todo). In my next post we will be creating a frontend for our todo app using htmx.
