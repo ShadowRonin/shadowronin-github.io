@@ -65,6 +65,7 @@ class ThrustCurve:
 ```
 ## Drag
 <img src="/assets/posts/2024-07-24/ru.webp" alt="RuPaul" width="400"/>
+
 We have to do a little more math to figure out the drag force applied to our rocket. [According to NASA](https://www.grc.nasa.gov/www/k-12/VirtualAero/BottleRocket/airplane/rktcodn.html) the drag force *D = C<sub>d</sub> (r V<sup>2</sup> / 2)A*. Where *C<sub>d</sub>* is the coefficient of drag, *r* is the air density, *V* is the velocity, and *A* is the reference area. NASA says *C<sub>d</sub>* for model rockets is about 0.75, so we'll use that. According to wikipedia the air density at sea level is 1.225 kg/m<sup>3</sup>, and while this would change with altitude, for now we are going to hold it constant, since our rocket wont be getting super high off the ground. Lastly we'll assume the area of a rocket is just the area of a circle with radius equal to the radius of our rocket.
 
 Putting that into code we get:
