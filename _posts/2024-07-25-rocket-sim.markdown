@@ -189,3 +189,5 @@ You'll also note that even flying vertically, we move a (extremely) tiny amount 
 ## Summary
 
 In all, we've now calculated the most basic forces on our rocket and plotted its trajectory. It's a good start for our little simulation. The next main goal will be to simulate a larger rocket going into orbit. First though, we need to get some more data. In my next post I'll be collecting some additional telemetry so we can graph our forces, acceleration (including gravity!), and mass over time. 
+
+You can find the complete code on my github [here](https://github.com/ShadowRonin/rocket-trajectory-2).
