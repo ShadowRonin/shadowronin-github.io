@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Rust: Basic web stack"
-subtitle: "Finding the enemy"
+subtitle: "Poem and htmx"
 date:   2023-11-19 12:00:15 -0500
 categories: [rust]
 background: '/assets/images/rusty-chain.jpg'
