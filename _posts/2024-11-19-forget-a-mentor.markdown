@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Book Review: Forget a Mentor, Find a Sponsor"
-subtitle: "A spaceship battle game"
+subtitle: "The New Way to Fast-Track Your Career"
 date:   2024-11-19 00:00:15 -0400
 categories: [book review, professional development]
 background: '/assets/images/book.jpg'
