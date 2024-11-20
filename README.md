@@ -27,6 +27,7 @@ Built with:
     - [rusty chain](https://pixabay.com/photos/chain-rust-iron-metal-macro-rusty-566778/)
     - [orion nebula](https://pixabay.com/photos/orion-nebula-emission-nebula-11107/)
     - [rocket](https://pixabay.com/illustrations/space-rocket-night-cartoon-3262811/)
+    - [book](https://pixabay.com/photos/book-pages-chapters-open-open-book-1283865/)
 
 ## To build
 - `bundle exec jekyll serve`
